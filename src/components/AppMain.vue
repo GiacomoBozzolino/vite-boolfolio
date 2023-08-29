@@ -7,7 +7,8 @@ import axios from 'axios';
             return {
                 baseUrl:'http://localhost:8000',
                 projects: [],
-                loading:true
+                loading:true,
+                maxNumChar:50
             }
         },
         created(){
@@ -23,6 +24,13 @@ import axios from 'axios';
                         this.projects = response.data.results;
                     }
                 })
+            },
+
+            truncateText(text){
+                if(text.length > this.maxNumChar){
+                    return text.substr(0,50) + '...'
+                }
+                return text;
             }
 
         }
@@ -41,8 +49,25 @@ import axios from 'axios';
     </div>
     <div class="container">
         <div class="row">
-            <div class='col-12' v-for="project in projects" :key="project.id">
-                {{project.name}}
+            <div class='col-12 col-md-4' v-for="project in projects" :key="project.id">
+                <div class="card my-3">
+                    <div class="card-header">
+                        {{project.name}}
+    
+                    </div>
+                    <div class= "">
+                        <img :src="`${baseUrl}/storage/${project.img}`" class="card-img-top" :alt="projects.name">
+    
+                    </div>
+                    <div class="card-body">
+                        {{truncateText(project.link)}}
+                    </div>
+                    <div class="card-footer">
+                        <a href="" class="btn btn-sm btn-primary"> Guarda il progetto</a>
+    
+                    </div>
+
+                </div>
             </div>
         </div>   
     </div>
