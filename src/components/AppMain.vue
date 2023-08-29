@@ -8,20 +8,24 @@ import axios from 'axios';
                 baseUrl:'http://localhost:8000',
                 projects: [],
                 loading:true,
-                maxNumChar:50
+                maxNumChar:50,
+                currentPage: 1,
+                lastPage:null,
             }
         },
         created(){
-            this.getProjects();
+            this.getProjects(1);
 
         },
         methods:{
             // IMPOSTO AXIOS
-            getProjects(){
+            getProjects(num_page){
                 this.loading = true;
-                axios.get(`${this.baseUrl}/api/projects`).then((response)=> {
+                axios.get(`${this.baseUrl}/api/projects`,{params: {page: num_page}}).then((response)=> {
                     if(response.data.success){
-                        this.projects = response.data.results;
+                        this.projects = response.data.results.data;
+                        this.currentPage = response.data.results.current_page;
+                        this.lastPage= response.data.results.last_page;
                     }
                 })
             },
