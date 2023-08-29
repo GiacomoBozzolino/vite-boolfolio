@@ -61,6 +61,18 @@ import axios from 'axios';
                     </div>
                     <div class="card-body">
                         {{truncateText(project.link)}}
+                        <div>
+                            <span v-if='project.type'>{{project.type.name}} </span>
+                            <span v-else>Nessuna tecnologia</span>
+                        </div>
+                        <div v-if='project.technologies'>
+                            <span>
+                                <span class="badge text-bg-primary text-decoration-none mx-2" v-for='tech in project.technologies' :key='tech.id'>
+                                    {{tech.name}}
+                                </span>
+
+                            </span>
+                        </div>
                     </div>
                     <div class="card-footer">
                         <a href="" class="btn btn-sm btn-primary"> Guarda il progetto</a>
