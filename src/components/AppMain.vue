@@ -26,6 +26,7 @@ import axios from 'axios';
                         this.projects = response.data.results.data;
                         this.currentPage = response.data.results.current_page;
                         this.lastPage= response.data.results.last_page;
+                       
                     }
                 })
             },
@@ -80,9 +81,22 @@ import axios from 'axios';
                     </div>
                     <div class="card-footer">
                         <a href="" class="btn btn-sm btn-primary"> Guarda il progetto</a>
-    
                     </div>
 
+                </div>
+            </div>
+            <div class="col-12 ">
+                <div class="d-flex justify-content-center">
+                    <nav >
+                        <ul class="pagination">
+                            <li :class="currentPage === 1 ? 'disabled' :''">
+                                <button class="page-link" @click='getProjects(currentPage - 1)'>Precedente</button>
+                            </li>
+                            <li :class="currentPage === lastPage ? 'disabled' :''">
+                                <button class="page-link" @click='getProjects(currentPage + 1)'>Successivo</button>
+                            </li>
+                        </ul>
+                    </nav>
                 </div>
             </div>
         </div>   
