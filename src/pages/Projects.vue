@@ -1,7 +1,9 @@
 <script>
 import axios from 'axios';
 import AppLoader from '../components/AppLoader.vue';
+import ProjectsCard from '../components/ProjectsCard.vue';
 import { store } from '../store';
+
 
     export default {
         name: 'Projects',
@@ -9,6 +11,7 @@ import { store } from '../store';
 
         components:{
             AppLoader,
+            ProjectsCard,
             
 
         },
@@ -16,7 +19,7 @@ import { store } from '../store';
             return {
                 store,
                 projects: [],
-                maxNumChar:50,
+                
                 currentPage: 1,
                 lastPage:null,
                 
@@ -40,14 +43,6 @@ import { store } from '../store';
                     }
                 })
             },
-
-            truncateText(text){
-                if(text.length > this.maxNumChar){
-                    return text.substr(0,50) + '...'
-                }
-                return text;
-            }
-
         }
         
     }
@@ -58,55 +53,27 @@ import { store } from '../store';
     
     <div class="container">
         <div class="row">
-            <div class="col-12 d-flex justify-content-center align-items-center py-5" v-if="store.loading">
+            <div class="col-12 d-flex justify-content-center align-items-center py-5" v-if="loading">
                 <AppLoader/>
             </div>
             <div class="row "  v-else>
                 <div class='col-12 col-md-4' v-for="project in projects" :key="project.id">
-                <div class="card my-3">
-                    <div class="card-header">
-                        {{project.name}}
-    
-                    </div>
-                    <div class= "">
-                        <img :src="`${baseUrl}/storage/${project.img}`" class="card-img-top" :alt="projects.name">
-    
-                    </div>
-                    <div class="card-body">
-                        {{truncateText(project.link)}}
-                        <div>
-                            <span v-if='project.type'>{{project.type.name}} </span>
-                            <span v-else>Nessuna tecnologia</span>
-                        </div>
-                        <div v-if='project.technologies'>
-                            <span>
-                                <span class="badge text-bg-primary text-decoration-none mx-2" v-for='tech in project.technologies' :key='tech.id'>
-                                    {{tech.name}}
-                                </span>
-
-                            </span>
-                        </div>
-                    </div>
-                    <div class="card-footer">
-                        <a href="" class="btn btn-sm btn-primary"> Guarda il progetto</a>
-                    </div>
-
+                    <ProjectsCard :project="project"/>
                 </div>
-            </div>
-            <div class="col-12 ">
-                <div class="d-flex justify-content-center">
-                    <nav >
-                        <ul class="pagination">
-                            <li :class="currentPage === 1 ? 'disabled' :''">
-                                <button class="page-link" @click='getProjects(currentPage - 1)'>Precedente</button>
-                            </li>
-                            <li :class="currentPage === lastPage ? 'disabled' :''">
-                                <button class="page-link" @click='getProjects(currentPage + 1)'>Successivo</button>
-                            </li>
-                        </ul>
-                    </nav>
+                <div class="col-12 ">
+                    <div class="d-flex justify-content-center">
+                        <nav >
+                            <ul class="pagination">
+                                <li :class="currentPage === 1 ? 'disabled' :''">
+                                    <button class="page-link" @click='getProjects(currentPage - 1)'>Precedente</button>
+                                </li>
+                                <li :class="currentPage === lastPage ? 'disabled' :''">
+                                    <button class="page-link" @click='getProjects(currentPage + 1)'>Successivo</button>
+                                </li>
+                            </ul>
+                        </nav>
+                    </div>
                 </div>
-            </div>
             </div>
             
         </div>   
