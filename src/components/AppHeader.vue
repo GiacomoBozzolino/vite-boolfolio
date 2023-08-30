@@ -8,12 +8,14 @@
                 menuItems:[
                     {
                         label:'Home',
+                        routeName: 'Home'
                     },
                     {
                         label:'Chi siamo',
                     },
                     {
-                        label:'Articoli',
+                        label:'Progetti',
+                        routeName: 'Projects'
                     },
                     {
                         label:'Tipologie',
@@ -42,7 +44,9 @@
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav">
                         <li class="nav-item" v-for="(item, index) in menuItems" :key="index">
-                            <a class="nav-link active" aria-current="page" href="#">{{item.label}}</a>
+                           <router-link class="nav-link" :to="{name: item.routeName}">
+                            {{item.label}}
+                        </router-link>
                         </li>
                     </ul>
                 </div>
