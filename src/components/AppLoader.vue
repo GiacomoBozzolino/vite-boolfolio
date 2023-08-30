@@ -3,6 +3,8 @@
 <script>
 export default {
 
+    name:'AppLoader',
+
 }
 </script>
 
