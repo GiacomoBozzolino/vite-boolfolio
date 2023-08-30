@@ -9,6 +9,13 @@
 <template lang="">
     <div class="container">
         <div class="row">
+            <div class="col-12">
+                <h1 class="text-center">Boolfolio</h1>
+            </div>
+        </div> 
+    </div>
+    <div class="container">
+        <div class="row">
             <div class="col-12 mt-3">
                 <p>
                      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent sapien sapien, faucibus at nunc in, condimentum commodo magna. Maecenas rutrum, diam et ultricies ultricies, dolor turpis placerat lorem, sed rutrum metus purus in justo. Donec massa nisl, rhoncus vel nisl et, semper lacinia ligula. Nunc tincidunt urna ut ipsum consequat, et dapibus magna luctus. Interdum et malesuada fames ac ante ipsum primis in faucibus. Praesent interdum suscipit dignissim. Etiam sagittis cursus elit, et laoreet turpis ullamcorper at. Duis vitae bibendum leo. Nullam risus nibh, tempor quis est at, pellentesque gravida nisl. Phasellus eget leo a tellus feugiat condimentum. Praesent auctor ipsum est.

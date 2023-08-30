@@ -54,13 +54,7 @@ import AppLoader from '../components/AppLoader.vue';
 
 
 <template lang="">
-    <div class="container">
-        <div class="row">
-            <div class="col-12">
-                <h1 class="text-center">Boolfolio</h1>
-            </div>
-        </div> 
-    </div>
+    
     <div class="container">
         <div class="row">
             <div class="col-12 d-flex justify-content-center align-items-center py-5" v-if="loading">
