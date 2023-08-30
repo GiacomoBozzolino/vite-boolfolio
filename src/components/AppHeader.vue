@@ -1,7 +1,30 @@
 <script>
 
     export default {
-        name:'AppHeader'
+        name:'AppHeader',
+       
+        data() {
+            return {
+                menuItems:[
+                    {
+                        label:'Home',
+                    },
+                    {
+                        label:'Chi siamo',
+                    },
+                    {
+                        label:'Articoli',
+                    },
+                    {
+                        label:'Tipologie',
+                    },
+                    {
+                        label:'Contatti',
+                    },
+
+                ]
+            }
+        },
 
 
     }
@@ -18,16 +41,9 @@
                 </button>
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav">
-                        <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="#">Home</a>
+                        <li class="nav-item" v-for="(item, index) in menuItems" :key="index">
+                            <a class="nav-link active" aria-current="page" href="#">{{item.label}}</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Projects</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Tipologie</a>
-                        </li>
-                        
                     </ul>
                 </div>
             </div>

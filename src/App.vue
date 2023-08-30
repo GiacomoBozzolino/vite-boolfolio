@@ -16,7 +16,7 @@
 
   <div>
     <AppHeader/>
-    <AppMain/>
+    <router-view></router-view>
   </div>
   
 
