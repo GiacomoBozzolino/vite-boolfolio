@@ -12,13 +12,15 @@
                     },
                     {
                         label:'Chi siamo',
+                        routeName:'AboutUs'
                     },
                     {
                         label:'Progetti',
-                        routeName: 'Projects'
+                        routeName:'Projects'
                     },
                     {
                         label:'Tipologie',
+                        routeName:'Types'
                     },
                     {
                         label:'Contatti',
