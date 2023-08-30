@@ -1,8 +1,15 @@
 <script>
 import axios from 'axios';
+import AppLoader from './AppLoader.vue';
 
     export default {
         name: 'AppMain',
+
+
+        components:{
+            AppLoader
+
+        },
         data (){
             return {
                 baseUrl:'http://localhost:8000',
@@ -11,6 +18,7 @@ import axios from 'axios';
                 maxNumChar:50,
                 currentPage: 1,
                 lastPage:null,
+                loading: true,
             }
         },
         created(){
@@ -26,6 +34,7 @@ import axios from 'axios';
                         this.projects = response.data.results.data;
                         this.currentPage = response.data.results.current_page;
                         this.lastPage= response.data.results.last_page;
+                        this.loading = false;
                        
                     }
                 })
@@ -54,7 +63,11 @@ import axios from 'axios';
     </div>
     <div class="container">
         <div class="row">
-            <div class='col-12 col-md-4' v-for="project in projects" :key="project.id">
+            <div class="col-12 d-flex justify-content-center align-items-center py-5" v-if="loading">
+                <AppLoader/>
+            </div>
+            <div class="row "  v-else>
+                <div class='col-12 col-md-4' v-for="project in projects" :key="project.id">
                 <div class="card my-3">
                     <div class="card-header">
                         {{project.name}}
@@ -99,6 +112,8 @@ import axios from 'axios';
                     </nav>
                 </div>
             </div>
+            </div>
+            
         </div>   
     </div>
 </template>
