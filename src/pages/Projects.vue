@@ -7,19 +7,15 @@ import { store } from '../store';
 
     export default {
         name: 'Projects',
-
-
+        
         components:{
             AppLoader,
             ProjectsCard,
-            
-
         },
         data (){
             return {
                 store,
                 projects: [],
-                
                 currentPage: 1,
                 lastPage:null,
                 
@@ -53,7 +49,7 @@ import { store } from '../store';
     
     <div class="container">
         <div class="row">
-            <div class="col-12 d-flex justify-content-center align-items-center py-5" v-if="loading">
+            <div class="col-12 d-flex justify-content-center align-items-center py-5" v-if="store.loading">
                 <AppLoader/>
             </div>
             <div class="row "  v-else>
