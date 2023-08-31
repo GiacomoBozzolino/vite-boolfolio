@@ -5,6 +5,7 @@ import Projects from './pages/Projects.vue';
 import TypesList from './pages/TypesList.vue';
 import AboutUs from './pages/AboutUs.vue';
 import SingleProject from './pages/SingleProject.vue';
+import NotFound from './pages/NotFound.vue'
 
 
 
@@ -36,6 +37,16 @@ const router = createRouter({
             name:'SingleProject',
             component: SingleProject,
         },
+
+        {
+            path:'/pagina-non-trovata',
+            name:'not-found',
+            component:NotFound
+        },
+        {
+            path:'/:catchAll(.*)',
+            redirect:'/pagina-non-trovata'
+        }
     ]
 })
 

@@ -29,7 +29,7 @@
                         this.project =response.data.project
                         store.loading=false
                     }else{
-
+                        this.$router.push({name:'not-found'});
                     }
 
                 });
