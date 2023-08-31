@@ -43,7 +43,7 @@ import { store } from '../store';
                     {{project.name}}
                 </div>
                 <div class= "">
-                    <img :src="`${store.baseUrl}/storage/${project.img}`" class="card-img-top" :alt="project.name">
+                    <img :src="`${store.baseUrl}/storage/${project.img}`" class="card-img-top" :alt="project.name"/>
                 </div>
                 <div class="card-body">
                     {{truncateText(project.link)}}
@@ -58,7 +58,8 @@ import { store } from '../store';
                     </div>
                 </div>
                 <div class="card-footer">
-                    <a href="" class="btn btn-sm btn-primary"> Guarda il progetto</a>
+                    <!-- <a href="" class="btn btn-sm btn-primary"> Guarda il progetto</a> -->
+                    <router-link class="btn btn-sm btn-primary" :to="{name:'SingleProject', params:{slug:project.slug}}">Guarda il progetto</router-link>
                 </div>
             </div>
        
