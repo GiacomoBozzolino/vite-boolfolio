@@ -24,6 +24,7 @@
                     },
                     {
                         label:'Contatti',
+                        routeName:'Contacts'
                     },
 
                 ]
