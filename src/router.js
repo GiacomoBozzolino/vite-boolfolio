@@ -5,7 +5,9 @@ import Projects from './pages/Projects.vue';
 import TypesList from './pages/TypesList.vue';
 import AboutUs from './pages/AboutUs.vue';
 import SingleProject from './pages/SingleProject.vue';
-import NotFound from './pages/NotFound.vue'
+import NotFound from './pages/NotFound.vue';
+import Contacts from './pages/Contacts.vue';
+import ThankYou from './pages/ThankYou.vue';
 
 
 
@@ -36,6 +38,17 @@ const router = createRouter({
             path:'/projects/:slug',
             name:'SingleProject',
             component: SingleProject,
+        },
+
+        {
+            path:'/contacts',
+            name:'Contacts',
+            component: Contacts,
+        },
+        {
+            path: '/thank-you',
+            name: 'thank-you',
+            component: ThankYou,
         },
 
         {
